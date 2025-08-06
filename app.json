@@ -1,29 +1,117 @@
 {
   "expo": {
-    "name": "iot-smart-home",
+    "name": "智能家居",
     "slug": "iot-smart-home",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
+    "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.company.iot-smart-home",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "此应用需要访问相机来拍摄设备照片和扫描二维码",
+        "NSPhotoLibraryUsageDescription": "此应用需要访问相册来选择设备图片",
+        "NSLocationWhenInUseUsageDescription": "此应用需要访问位置信息来提供基于位置的智能场景",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "此应用需要访问位置信息来提供基于位置的智能场景",
+        "NSMicrophoneUsageDescription": "此应用需要访问麦克风来进行语音控制",
+        "NSUserNotificationsUsageDescription": "此应用需要发送通知来提醒您设备状态和场景执行结果",
+        "NSFaceIDUsageDescription": "此应用使用Face ID来保护您的隐私和安全",
+        "NSLocalNetworkUsageDescription": "此应用需要访问本地网络来控制智能设备",
+        "UIBackgroundModes": [
+          "background-fetch",
+          "background-processing"
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FFFFFF"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.company.iot_smart_home",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "RECORD_AUDIO",
+        "VIBRATE",
+        "RECEIVE_BOOT_COMPLETED",
+        "WAKE_LOCK",
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "ACCESS_WIFI_STATE",
+        "CHANGE_WIFI_STATE",
+        "USE_FINGERPRINT",
+        "USE_BIOMETRIC"
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id-here"
+      }
+    },
+    "owner": "your-expo-username",
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/your-project-id-here"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "此应用需要访问相机来拍摄设备照片和扫描二维码"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "此应用需要访问相册来选择设备图片"
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "此应用需要访问相册来保存设备图片",
+          "savePhotosPermission": "此应用需要保存照片到相册",
+          "isAccessMediaLocationEnabled": true
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "此应用需要访问位置信息来提供基于位置的智能场景",
+          "locationAlwaysPermission": "此应用需要访问位置信息来提供基于位置的智能场景",
+          "locationWhenInUsePermission": "此应用需要访问位置信息来提供基于位置的智能场景",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#ffffff",
+          "sounds": ["./assets/notification-sound.wav"]
+        }
+      ]
+    ]
   }
 }
